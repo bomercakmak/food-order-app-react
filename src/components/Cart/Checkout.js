@@ -1,7 +1,21 @@
 import classes from "./Checkout.module.css";
-import { useRef } from "react";
+import { useRef,useState } from "react";
+const isEmpty = (value) => {
+  return value.trim() === "";
+};
+const isFiveCharacters = (value) => {
+  return value.trim().length === 5;
+};
 
 const Checkout = (props) => {
+
+  const [formInputsValidity,setFormInputsValidity] = useState({
+    name:true,
+    street:true,
+    city:true,
+    postalCode:true,
+  })
+
   const nameInputRef = useRef();
   const streetInputRef = useRef();
   const postalCodeInputRef = useRef();
@@ -14,8 +28,31 @@ const Checkout = (props) => {
     const enteredStreet = streetInputRef.current.value;
     const enteredPostalCode = postalCodeInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
-  };
 
+    const enteredNameIsValid = !isEmpty(enteredName);
+    const enteredSteetIsValid = !isEmpty(enteredStreet);
+    const enteredCityIsValid = !isEmpty(enteredCity);
+    const enteredPostalCodeIsValid = isFiveCharacters(enteredPostalCode);
+
+    setFormInputsValidity({
+      name:enteredNameIsValid,
+      street:enteredSteetIsValid,
+      city:enteredCityIsValid,
+      postalCode:enteredPostalCodeIsValid
+    })
+
+    const formIsValid =
+      enteredNameIsValid &&
+      enteredSteetIsValid &&
+      enteredCityIsValid &&
+      enteredPostalCodeIsValid;
+
+
+      if(!formIsValid){
+        return;
+      }
+  };
+  
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={classes.control}>
