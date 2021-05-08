@@ -5,7 +5,7 @@ const HeaderCartButton = props => {
     return (
         <button className={classes.button} onClick={props.onClick} >
             <span>
-                Orders
+                {props.buttonValue ? "Orders" : "Meals" }
             </span>
         </button>
     )

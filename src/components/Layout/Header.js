@@ -12,7 +12,7 @@ const Header = props => {
         <header className={classes.header} >
             <h1>Order Meals</h1>
             <div>
-            <HeaderOrderButton onClick={cartCtx.toggleOrder}/>
+            <HeaderOrderButton buttonValue={cartCtx.changeMeals} onClick={cartCtx.toggleOrder}/>
             <HeaderCartButton  onClick={props.onShowCart}/>
             </div>
   
