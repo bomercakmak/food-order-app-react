@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Introduction Video of My Portfolio Website
 
-<a href="https://bomercakmak-food-order-app-react.netlify.app/"><img src="./src/img/my-website.gif" title="food-order.gif"></a>
+<a href="https://bomercakmak-food-order-app-react.netlify.app/"><img src="./src/assets/food-order.gif" title="food-order.gif"></a>
 
 ## Available Scripts
 
